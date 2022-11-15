@@ -5,6 +5,7 @@ class Board:
         for i in range(3):
             row = [' ', '  |  ', ' ', '  |  ', ' ']
             self.matrix.append(row)
+        self.moves = 0
 
     def board_explanation(self):
         #Gets a copy of the fieldmatrix

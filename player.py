@@ -43,6 +43,7 @@ class Player:
         else:
             field = self.human_player()
         self.board.matrix[field[0]][field[1]] = self.symbol
+        self.board.moves += 1
         self.board.show_board()
 
 
