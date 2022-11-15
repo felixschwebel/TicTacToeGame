@@ -14,17 +14,16 @@ def game():
     players = [Player(False, game_board, 'X')]
 
     # let the user choose the game-mode
-    singleplayer = ""
-    while singleplayer != 'y' and singleplayer != 'n':
-        singleplayer = input('Do you want to play against the Computer? (y/n)\n').lower()
-        if singleplayer == 'y':
+    single_player = ""
+    while single_player != 'y' and single_player != 'n':
+        single_player = input('Do you want to play against the Computer? (y/n)\n').lower()
+        if single_player == 'y':
             #Creates an AI-Player
             players.append(Player(True, game_board, 'O'))
-        elif singleplayer == 'n':
+        elif single_player == 'n':
             players.append(Player(False, game_board, 'O'))
         else:
             print("Please answer with 'y' or 'n'.")
-
 
     while game_board.moves < 9:
         for player in players:
@@ -53,7 +52,7 @@ def game():
 
             if over:
                 if player.symbol == 'X':
-                    if singleplayer == 'y':
+                    if single_player == 'y':
                         return print('Computer wins!')
                     else:
                         return print('"O" wins!')
