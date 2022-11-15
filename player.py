@@ -23,18 +23,19 @@ class Player:
         return self.check_field(choice)
 
     def human_player(self):
-        try:
-            choice = int(input('Please choose a field on the board!\n'))
-            if choice < 1 or choice > 9:
-                raise ValueError
-            elif not self.check_field(choice):
-                print('Field already occupied, please choose another!')
-                self.human_player()
-            else:
-                return self.check_field(choice)
-        except ValueError:
-            print('Please put in a valid number!')
-            self.human_player()
+        wrong_input = True
+        while wrong_input:
+            try:
+                choice = int(input(f'|{self.symbol}| - Please choose a field on the board.\n'))
+                if 0 < choice < 10:
+                    if self.check_field(choice) is not False:
+                        return self.check_field(choice)
+                    else:
+                        print('Field already occupied, please choose another!')
+                else:
+                    print('Please provide a valid number!')
+            except ValueError:
+                print('Please provide a valid number!')
 
     def put_stone(self):
         #if AI-Player, put stone automatically
@@ -45,7 +46,4 @@ class Player:
         self.board.matrix[field[0]][field[1]] = self.symbol
         self.board.moves += 1
         self.board.show_board()
-
-
-        #     self.put_stone()
 
