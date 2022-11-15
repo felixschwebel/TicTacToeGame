@@ -10,7 +10,7 @@ def game():
     print('*******************')
     game_board.board_explanation()
 
-    #Initializes Players
+    #Initializes Playersr
     players = [Player(False, game_board, 'X')]
 
     # let the user choose the game-mode
@@ -48,9 +48,11 @@ def game():
 
             #Check if there is an empty field left
             if game_board.moves == 9:
-                return print('Draw!')
+                over = True
 
             if over:
+                if game_board.moves == 9:
+                    return print('Draw!')
                 if player.symbol == 'X':
                     if single_player == 'y':
                         return print('Computer wins!')
