@@ -1,11 +1,8 @@
 from board import Board
+from player import Player
 
-
-def multiplayer(matrix):
-    field = int(input('Please choose a field on the board!\n'))
-    #Converts the user input into the list entry location
-    row = round(((field+1)/3))-1
-    column = ((field+2)%3)*2
+def player(matrix):
+    pass
 
 
 def game():
@@ -23,7 +20,11 @@ def game():
     # else:
     #     pass
 
-    multiplayer()
+    #Check for the game rules
+
+    p1 = Player(True, new_board, 'X')
+    p1.put_stone()
+
 
 
 
