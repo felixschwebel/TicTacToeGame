@@ -1,6 +1,5 @@
 from board import Board
 from player import Player
-import sys
 
 
 def game():
